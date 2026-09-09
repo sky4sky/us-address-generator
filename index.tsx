@@ -20,8 +20,6 @@ import { t, getCurrentLang } from "./lang"
 const SCRIPT_NAME = "美国地址生成器"
 const SCRIPT_AUTHOR = "Ant"
 const CURRENT_VERSION = "1.0.1"
-const GITHUB_REPO = "ant/scripting-us-address-generator"
-const CHECK_INTERVAL = 24 * 60 * 60 * 1000 // 24小时
 
 ;(async () => {
   try {
@@ -52,10 +50,6 @@ const CHECK_INTERVAL = 24 * 60 * 60 * 1000 // 24小时
       if (mgrCfg.authorName === SCRIPT_AUTHOR) return
     } catch {}
 
-    // GitHub 更新检查（简化版：直接提示版本号变化）
-    // 实际项目中可添加远程版本 API
-    // 此处仅记录历史，不强制网络请求
-
   } catch (e) {
     console.error("更新检查失败:", e)
   }
@@ -67,7 +61,7 @@ function compareVersionsDesc(a: string, b: string): number {
   const bv = parse(b)
   for (let i = 0; i < Math.max(av.length, bv.length); i++) {
     const diff = (av[i] || 0) - (bv[i] || 0)
-    if (diff !== 0) return -diff // 降序
+    if (diff !== 0) return -diff
   }
   return 0
 }
@@ -193,7 +187,7 @@ function VersionHistoryView(props: { onClose: () => void }) {
             <Text font="body" foregroundStyle="secondaryLabel" alignment="center">暂无版本历史</Text>
           </VStack>
         ) : (
-          history.map((entry, idx) => (
+          history.map((entry: any, idx: number) => (
             <VStack key={idx} spacing={4} padding={{ horizontal: 16, vertical: 12 }}>
               <HStack spacing={8} alignment="center">
                 <Image systemName="tag.fill" foregroundStyle="tintColor" font={12} />
