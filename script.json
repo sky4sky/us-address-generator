@@ -1,0 +1,13 @@
+{
+  "name": "美国地址生成器",
+  "icon": "mappin",
+  "color": "rgba(10, 132, 255, 1)",
+  "version": "1.0.1",
+  "description": "Generate realistic US addresses with tax-free state options - one-click generation of full name, street, city, state, zip code, and phone number",
+  "author": {
+    "name": "Ant"
+  },
+  "changelog": [
+    "初始正式版发布"
+  ]
+}
